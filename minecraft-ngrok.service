@@ -1,0 +1,13 @@
+[Unit]
+Description=Runs ngrok.io for a Minecraft server
+After=network.target
+
+[Service]
+User=minecraft-tunnel
+WorkingDirectory=/home/minecraft-tunnel/minecraft-cloudflare-ngrok/
+ExecStart=ngrok tcp 25565 --region au
+ExecStartPost=/home/minecraft-tunnel/minecraft-cloudflare-ngrok/cloudflare.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

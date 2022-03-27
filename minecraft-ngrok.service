@@ -5,8 +5,8 @@ After=network.target
 [Service]
 User=minecraft-tunnel
 WorkingDirectory=/home/minecraft-tunnel/minecraft-cloudflare-ngrok/
-ExecStart=ngrok tcp 25565 --region au
-ExecStartPost=/home/minecraft-tunnel/minecraft-cloudflare-ngrok/cloudflare.py
+ExecStart=/snap/bin/ngrok tcp 25565 --region au
+ExecStartPost=python3 /home/minecraft-tunnel/minecraft-cloudflare-ngrok/cloudflare.py
 Restart=always
 
 [Install]

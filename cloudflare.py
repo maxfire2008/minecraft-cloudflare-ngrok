@@ -4,9 +4,11 @@ import config
 import urllib.parse
 import requests
 import time
+import socket
 
 def update_cloudflare(netloc):
     ip, port = netloc.split(':')
+    ip = socket.gethostbyname(ip)
     cf = CloudFlare.CloudFlare(token=config.CLOUDFLARE_TOKEN)
 ##    dns_records = cf.zones.dns_records.get(
 ##        CLOUDFLARE_ZONE, params={'name':''}
